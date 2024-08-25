@@ -38,12 +38,6 @@ public class LengthOfLongestSubstring {
             String prompt = prompts.get(i);
             System.out.println(subLength(prompt));
         }
-//        int q1 = subLength("abcabcbb");
-//        int q2 = subLength("bbbbb");
-//        int q3 = subLength("pwwkew");
-//        int q4 = subLength("aab");
-//        int q5 = subLength("dvdf");
-//        System.out.println("Print 2: \n" + q1 + "\n" + q2 + "\n" + q3 + "\n" + q4 + "\n" + q5);
     }
 
     public static int subLength(String str) {
@@ -72,53 +66,6 @@ public class LengthOfLongestSubstring {
         }
         return max;
     }
-
-    public static int subLengthTwo(String str) {
-        int count = 0;
-        int max = 0;
-        int index = 0;
-        ArrayList<String> letters = new ArrayList<>();
-        for (int i = 0; i < str.length(); i++) {
-            String letter = str.substring(i, i + 1);
-            if (!letters.contains(letter)) {
-                letters.add(letter);
-                count++;
-                if (count > max) {
-                    max = count;
-                }
-            } else {
-                index = letters.indexOf(letter);
-                count = 1;
-                letters = new ArrayList<String>();
-                letters.add(letter);
-            }
-        }
-        return max;
-    }
-
-    public static Node sub(String str) {
-        int count = 0;
-        int max = 0;
-        ArrayList<String> letters = new ArrayList<String>();
-        ArrayList<String> maxLetters = new ArrayList<String>();
-        for (int i = 0; i < str.length(); i++) {
-            String letter = str.substring(i, i + 1);
-            if (!letters.contains(letter)) {
-                letters.add(letter);
-                count++;
-                if (count > max) {
-                    max = count;
-                    maxLetters = letters;
-                }
-            } else {
-                count = 0;
-                letters = new ArrayList<String>();
-            }
-        }
-        Node fin = new Node(max, maxLetters);
-        return fin;
-    }
-
 }
 
 class Node {
