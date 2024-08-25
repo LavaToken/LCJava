@@ -55,18 +55,19 @@ public class LengthOfLongestSubstring {
             String letter = str.substring(i, i + 1);
             if (!letters.contains(letter)) {
                 letters.add(letter);
-                count++;
+                count = letters.size();
                 if (count > max) {
                     max = count;
                 }
             } else {
                 index = letters.indexOf(letter);
-                count -= index;
-                ArrayList<String> temp = new ArrayList<>();
-                for (int j = index+1; j < count; j++) {
-                    temp.add(letters.get(j));
+                ArrayList<String> temp = letters;
+                letters = new ArrayList<String>();
+                for(int j = index + 1; j < temp.size(); j++){
+                    letters.add(temp.get(j));
                 }
-                letters = temp;
+                letters.add(letter);
+                count = letters.size();
             }
         }
         return max;
