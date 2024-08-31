@@ -10,6 +10,7 @@ public class longestPalindrome {
         if(str.contains("b")){
             return "true";
         }
+        return "false";
     }
 
     public static ArrayList<String> longestPalindromeTwo(String str){
